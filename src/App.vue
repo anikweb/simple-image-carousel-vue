@@ -59,11 +59,6 @@ function prevImage(id){
 }
 
 
-setInterval(function () {
-
-  nextImage(id+1)
-}, 1000);
-
   
 
 
@@ -83,9 +78,10 @@ setInterval(function () {
       <div>
         
         <img id="mainImage" class="mainImage img-fluid" :src="mainImage"/>
+
         <div class="arrow-group-container">
           <div class=" arrow-group d-flex justify-content-between">
-            <div @click=" activeIndex == 1 ? activeIndex = images.length : activeIndex =  activeIndex -1; prevImage(activeIndex) " class="arrow-prev arrow">
+            <div @click="activeIndex == 1 ? activeIndex = images.length : activeIndex =  activeIndex -1; prevImage(activeIndex) " class="arrow-prev arrow">
                 <i class="fa-solid fa-chevron-left"></i>
              </div>
             <div @click=" activeIndex != images.length ? activeIndex = activeIndex + 1 : activeIndex =1; nextImage(activeIndex)" class="arrow-next arrow">
@@ -94,6 +90,7 @@ setInterval(function () {
           
           </div>
         </div>
+        
         <div class="navigator d-flex justify-content-center">
             <div @click="changeSlider(image)" class="navigator-item " v-for="(image, index) in images" :key="index" > 
                 <svg :fill="activeIndex == image.id ? '#ed3232' : '#ed32327a' " version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
